@@ -158,6 +158,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-spring-boot基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/">spring boot基础</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2020-07-21T13:40:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Spring-boot配置"><a href="#Spring-boot配置" class="headerlink" title="Spring boot配置"></a>Spring boot配置</h2><h3 id="配置文件作用："><a href="#配置文件作用：" class="headerlink" title="配置文件作用："></a>配置文件作用：</h3><p>SpringBoot在底层都给我们配置了默认值，如果不合适，可以通过配置文件修改SpringBoot的默认值。</p>
+<h3 id="SpringBoot配置文件"><a href="#SpringBoot配置文件" class="headerlink" title="SpringBoot配置文件"></a>SpringBoot配置文件</h3><p>SpringBoot使用全局的配置文件，配置文件名是固定的，大多放在src/main/resources目录下。</p>
+<ol>
+<li>application.properties(优先级高)</li>
+<li>application.yaml</li>
+<li>application.yml<br>yml是YAML语言的文件，后缀为yml或yaml。它以数据为中心，比json、xml等更适合做配置文件。</li></ol>
+        
+          <a class="article-more-a" href="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Spring-boot入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -179,9 +249,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Spring-boot简介"><a href="#Spring-boot简介" class="headerlink" title="Spring boot简介"></a>Spring boot简介</h2><h3 id="为什么有Spring-boot"><a href="#为什么有Spring-boot" class="headerlink" title="为什么有Spring boot?"></a>为什么有Spring boot?</h3><p>Spring Framework的优缺点：<br>Spring Framework是JavaEE的轻量级代替品，无需开发重量级的EJB，Spring Framework为Java企业级开发提供了一种相对简单的方法，通过IoC和AOP，用简单的POJO就可以实现EJB的功能。<br>虽然Spring Framework的组件代码是轻量级的，但是它的配置却是重量级的。配置随着规模的扩大越来越复杂。而且项目的依赖管理也是比较耗时，一旦选错了依赖的版本，就会有许多问题从而影响项目开发。<br>所以Spring Boot出现了。Spring Boot是对Spring的进一步包装，它基于“约定优于配置”的思想，将大量的习惯性配置内置到项目中，可以让开发人员不必西靠书写大量的配置，从而节省时间，提高开发效率。但它的底层仍然是Spring,只是使用Spring的另外一种方式。</p>
-<h3 id="Spring-Boot的优点"><a href="#Spring-Boot的优点" class="headerlink" title="Spring Boot的优点"></a>Spring Boot的优点</h3><p>更快的创建独立运行的Spring项目以及与主流框架集成<br>使用嵌入式的Servlet容器，应用无需打成WAR包。过去我们项目时完成后做成WAR包，丢到容器里去运行，而Spring Boot项目自身包括嵌入式的Servlet容器，完成后打包成jar包，直接运行。<br>starters（启动器）自动依赖与版本控制。Spring Boot将所有的功能场景都抽取出来，做成一个个的starters（启动器0.只需要在项目里面引入这些starter项目场景的启动器，所有依赖都会导入进来。）<br>大量的自动配置，简化开发<br>无需配置XML<br>准生产环境的运行时应用监控<br>与云计算的天然集成</p>
-<h3 id="Spring-Boot的核心功能："><a href="#Spring-Boot的核心功能：" class="headerlink" title="Spring Boot的核心功能："></a>Spring Boot的核心功能：</h3><p>起步依赖：<br>本质上是基于Maven项目对象模型，将具备某种功能的坐标达标在一起，并提供默认的功能<br>自动配置：<br>Spring Boot的自动配置是一个应用程序启动时的过程，考虑众多因素，才决定配置应该用哪个，改过程时自动只能完成的。</p>
-
+        
+          <a class="article-more-a" href="/2020/07/20/Spring-boot%E5%85%A5%E9%97%A8/#more">more >></a>
+        
       
 
       

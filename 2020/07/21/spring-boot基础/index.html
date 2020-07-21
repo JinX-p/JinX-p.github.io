@@ -6,19 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Spring boot入门 | JinX-p</title>
+  <title>spring boot基础 | JinX-p</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Spring boot简介为什么有Spring boot?Spring Framework的优缺点：Spring Framework是JavaEE的轻量级代替品，无需开发重量级的EJB，Spring Framework为Java企业级开发提供了一种相对简单的方法，通过IoC和AOP，用简单的POJO就可以实现EJB的功能。虽然Spring Framework的组件代码是轻量级的，但是它的配置却是重">
+  <meta name="description" content="Spring boot配置配置文件作用：SpringBoot在底层都给我们配置了默认值，如果不合适，可以通过配置文件修改SpringBoot的默认值。 SpringBoot配置文件SpringBoot使用全局的配置文件，配置文件名是固定的，大多放在src&#x2F;main&#x2F;resources目录下。  application.properties(优先级高) application.yaml applic">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring boot入门">
-<meta property="og:url" content="http://yoursite.com/2020/07/20/Spring-boot%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:title" content="spring boot基础">
+<meta property="og:url" content="http://yoursite.com/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="JinX-p">
-<meta property="og:description" content="Spring boot简介为什么有Spring boot?Spring Framework的优缺点：Spring Framework是JavaEE的轻量级代替品，无需开发重量级的EJB，Spring Framework为Java企业级开发提供了一种相对简单的方法，通过IoC和AOP，用简单的POJO就可以实现EJB的功能。虽然Spring Framework的组件代码是轻量级的，但是它的配置却是重">
-<meta property="article:published_time" content="2020-07-20T12:39:23.000Z">
-<meta property="article:modified_time" content="2020-07-21T16:09:02.333Z">
+<meta property="og:description" content="Spring boot配置配置文件作用：SpringBoot在底层都给我们配置了默认值，如果不合适，可以通过配置文件修改SpringBoot的默认值。 SpringBoot配置文件SpringBoot使用全局的配置文件，配置文件名是固定的，大多放在src&#x2F;main&#x2F;resources目录下。  application.properties(优先级高) application.yaml applic">
+<meta property="og:image" content="http://yoursite.com/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/4.jpg">
+<meta property="article:published_time" content="2020-07-21T13:40:51.000Z">
+<meta property="article:modified_time" content="2020-07-21T16:08:45.261Z">
 <meta property="article:author" content="JinX-p">
 <meta property="article:tag" content="JinX-p">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/1.png">
   
     <link rel="alternative" href="/atom.xml" title="JinX-p" type="application/atom+xml">
   
@@ -158,31 +163,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spring-boot入门" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-spring-boot基础" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Spring boot入门
+      spring boot基础
     </h1>
   
 
         
-        <a href="/2020/07/20/Spring-boot%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-07-20T12:39:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
+        <a href="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2020-07-21T13:40:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Spring-boot简介"><a href="#Spring-boot简介" class="headerlink" title="Spring boot简介"></a>Spring boot简介</h2><h3 id="为什么有Spring-boot"><a href="#为什么有Spring-boot" class="headerlink" title="为什么有Spring boot?"></a>为什么有Spring boot?</h3><p>Spring Framework的优缺点：<br>Spring Framework是JavaEE的轻量级代替品，无需开发重量级的EJB，Spring Framework为Java企业级开发提供了一种相对简单的方法，通过IoC和AOP，用简单的POJO就可以实现EJB的功能。<br>虽然Spring Framework的组件代码是轻量级的，但是它的配置却是重量级的。配置随着规模的扩大越来越复杂。而且项目的依赖管理也是比较耗时，一旦选错了依赖的版本，就会有许多问题从而影响项目开发。<br>所以Spring Boot出现了。Spring Boot是对Spring的进一步包装，它基于“约定优于配置”的思想，将大量的习惯性配置内置到项目中，可以让开发人员不必西靠书写大量的配置，从而节省时间，提高开发效率。但它的底层仍然是Spring,只是使用Spring的另外一种方式。</p>
-<a id="more"></a>
+        <h2 id="Spring-boot配置"><a href="#Spring-boot配置" class="headerlink" title="Spring boot配置"></a>Spring boot配置</h2><h3 id="配置文件作用："><a href="#配置文件作用：" class="headerlink" title="配置文件作用："></a>配置文件作用：</h3><p>SpringBoot在底层都给我们配置了默认值，如果不合适，可以通过配置文件修改SpringBoot的默认值。</p>
+<h3 id="SpringBoot配置文件"><a href="#SpringBoot配置文件" class="headerlink" title="SpringBoot配置文件"></a>SpringBoot配置文件</h3><p>SpringBoot使用全局的配置文件，配置文件名是固定的，大多放在src/main/resources目录下。</p>
+<ol>
+<li>application.properties(优先级高)</li>
+<li>application.yaml</li>
+<li>application.yml<br>yml是YAML语言的文件，后缀为yml或yaml。它以数据为中心，比json、xml等更适合做配置文件。<a id="more"></a>
 
-<h3 id="Spring-Boot的优点"><a href="#Spring-Boot的优点" class="headerlink" title="Spring Boot的优点"></a>Spring Boot的优点</h3><p>更快的创建独立运行的Spring项目以及与主流框架集成<br>使用嵌入式的Servlet容器，应用无需打成WAR包。过去我们项目时完成后做成WAR包，丢到容器里去运行，而Spring Boot项目自身包括嵌入式的Servlet容器，完成后打包成jar包，直接运行。<br>starters（启动器）自动依赖与版本控制。Spring Boot将所有的功能场景都抽取出来，做成一个个的starters（启动器0.只需要在项目里面引入这些starter项目场景的启动器，所有依赖都会导入进来。）<br>大量的自动配置，简化开发<br>无需配置XML<br>准生产环境的运行时应用监控<br>与云计算的天然集成</p>
-<h3 id="Spring-Boot的核心功能："><a href="#Spring-Boot的核心功能：" class="headerlink" title="Spring Boot的核心功能："></a>Spring Boot的核心功能：</h3><p>起步依赖：<br>本质上是基于Maven项目对象模型，将具备某种功能的坐标达标在一起，并提供默认的功能<br>自动配置：<br>Spring Boot的自动配置是一个应用程序启动时的过程，考虑众多因素，才决定配置应该用哪个，改过程时自动只能完成的。</p>
+</li>
+</ol>
+<h2 id="Spring-boot整合SSM-小例子"><a href="#Spring-boot整合SSM-小例子" class="headerlink" title="Spring boot整合SSM 小例子"></a>Spring boot整合SSM 小例子</h2><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ol>
+<li>创建database springboot</li>
+<li>创建table account</li>
+<li>创建字段 主键id（自增长）、username、password</li>
+<li>添加数据 username: aaa , password: bbb<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3>创建一个Spring Initializr项目，利用SpringBoot初始化器创建时注意选中 Spring Web、Thymeleaf、JDBC API、MyBatisFramework、MySQLDriver<br><img src="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/1.png" alt="注意选中"></li>
+</ol>
+<h3 id="配置文件application-properties"><a href="#配置文件application-properties" class="headerlink" title="配置文件application.properties"></a>配置文件application.properties</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.driver-class-name&#x3D;com.mysql.jdbc.Driver</span><br><span class="line">spring.datasource.url&#x3D;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;springboot?characterEncoding&#x3D;utf-8</span><br><span class="line">spring.datasource.username&#x3D;root</span><br><span class="line">spring.datasource.password&#x3D;</span><br></pre></td></tr></table></figure>
+
+<h3 id="domain包的持久化类"><a href="#domain包的持久化类" class="headerlink" title="domain包的持久化类"></a>domain包的持久化类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import java.io.Serializable;</span><br><span class="line"></span><br><span class="line">public class Account implements Serializable &#123;</span><br><span class="line">    private Integer id;</span><br><span class="line">    private String username;</span><br><span class="line">    private String password;</span><br><span class="line">    省略set、get、构造方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="dao包的AccountDao接口"><a href="#dao包的AccountDao接口" class="headerlink" title="dao包的AccountDao接口"></a>dao包的AccountDao接口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Repository</span><br><span class="line">@Mapper</span><br><span class="line">public interface AccountDao &#123;</span><br><span class="line">    @Select(&quot;select * from account&quot;)</span><br><span class="line">    public List&lt;Account&gt; findAll();</span><br><span class="line">    @Select(&quot;select * from account where username&#x3D;#&#123;username&#125; and password&#x3D;#&#123;password&#125;&quot;)</span><br><span class="line">    public List&lt;Account&gt; findByUsernamePassword(Account account);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="service包下AccountService接口"><a href="#service包下AccountService接口" class="headerlink" title="service包下AccountService接口"></a>service包下AccountService接口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public interface AccountService &#123;</span><br><span class="line">    public void findAll();</span><br><span class="line">    public boolean validateAccount(String username, String password);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="service的子包impl包下的AccountServiceImpl实现类"><a href="#service的子包impl包下的AccountServiceImpl实现类" class="headerlink" title="service的子包impl包下的AccountServiceImpl实现类"></a>service的子包impl包下的AccountServiceImpl实现类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@Service(&quot;accountService&quot;)</span><br><span class="line">public class AccountServiceImpl implements AccountService &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    AccountDao accountDao;</span><br><span class="line">    @Override</span><br><span class="line">    public void findAll() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean validateAccount(String username, String password) &#123;</span><br><span class="line">        Account account &#x3D; new Account();</span><br><span class="line">        account.setUsername(username);</span><br><span class="line">        account.setPassword(password);</span><br><span class="line">        List&lt;Account&gt; accounts &#x3D; accountDao.findByUsernamePassword(account);</span><br><span class="line">        if (accounts.isEmpty()) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="contorll包下的控制器AccountController"><a href="#contorll包下的控制器AccountController" class="headerlink" title="contorll包下的控制器AccountController"></a>contorll包下的控制器AccountController</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">public class AccountController &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    AccountService accountService;</span><br><span class="line">    @RequestMapping(&quot;&#x2F;login&quot;)</span><br><span class="line">    public String loginMethod(String username, String password, Model model) &#123;</span><br><span class="line">        if (accountService.validateAccount(username,password)) &#123;</span><br><span class="line">            model.addAttribute(&quot;username&quot;, username);</span><br><span class="line">            return &quot;success&quot;;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            return &quot;error&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="页面"><a href="#页面" class="headerlink" title="页面"></a>页面</h3><p>static 目录增加起始页index.html<br>templates目录下增加success.html和error.html<br><img src="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/2.png" alt="index.html"></p>
+<h3 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h3><p><img src="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/3.jpg" alt="登录"><br><img src="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/4.jpg" alt="成功"></p>
 
       
 
@@ -262,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/20/Spring-boot%E5%85%A5%E9%97%A8/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -276,18 +303,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          spring boot基础
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/17/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2020/07/20/Spring-boot%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring boot入门</div>
       <i class="icon-circle-right"></i>
     </a>
   
