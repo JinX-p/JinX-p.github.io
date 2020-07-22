@@ -6,14 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/7 | JinX-p</title>
+  <title>对象的序列化ObjectOutputStream和反序列化ObjectInputStream以及打印流PrintStream | JinX-p</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是我的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JinX-p">
-<meta property="og:url" content="http://yoursite.com/archives/2020/07/index.html">
+  <meta name="description" content="对象字节输出流 ObjectOutputStreamjava.io.ObjectOutputStream extends OutputStreamObjectOutputStream:对象的序列化流作用：把对象以流的方式写入到文件中保存 构造方法：    ObjectOutputStream（OutputStream out）创建写入指定 OutputStream 的 ObjectOutputSt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象的序列化ObjectOutputStream和反序列化ObjectInputStream以及打印流PrintStream">
+<meta property="og:url" content="http://yoursite.com/2020/07/22/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96ObjectOutputStream%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96ObjectInputStream%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8D%B0%E6%B5%81PrintStream/index.html">
 <meta property="og:site_name" content="JinX-p">
-<meta property="og:description" content="这是我的个人博客">
+<meta property="og:description" content="对象字节输出流 ObjectOutputStreamjava.io.ObjectOutputStream extends OutputStreamObjectOutputStream:对象的序列化流作用：把对象以流的方式写入到文件中保存 构造方法：    ObjectOutputStream（OutputStream out）创建写入指定 OutputStream 的 ObjectOutputSt">
+<meta property="article:published_time" content="2020-07-22T15:49:32.000Z">
+<meta property="article:modified_time" content="2020-07-22T15:57:12.020Z">
 <meta property="article:author" content="JinX-p">
 <meta property="article:tag" content="JinX-p">
 <meta name="twitter:card" content="summary">
@@ -156,130 +158,168 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-对象的序列化ObjectOutputStream和反序列化ObjectInputStream以及打印流PrintStream" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      对象的序列化ObjectOutputStream和反序列化ObjectInputStream以及打印流PrintStream
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/22/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96ObjectOutputStream%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96ObjectInputStream%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8D%B0%E6%B5%81PrintStream/" class="archive-article-date">
+
+        
+        <a href="/2020/07/22/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96ObjectOutputStream%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96ObjectInputStream%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8D%B0%E6%B5%81PrintStream/" class="archive-article-date">
   	<time datetime="2020-07-22T15:49:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/22/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96ObjectOutputStream%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96ObjectInputStream%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8D%B0%E6%B5%81PrintStream/">对象的序列化ObjectOutputStream和反序列化ObjectInputStream以及打印流PrintStream</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="对象字节输出流-ObjectOutputStream"><a href="#对象字节输出流-ObjectOutputStream" class="headerlink" title="对象字节输出流 ObjectOutputStream"></a>对象字节输出流 ObjectOutputStream</h2><p>java.io.ObjectOutputStream extends OutputStream<br>ObjectOutputStream:对象的序列化流<br>作用：把对象以流的方式写入到文件中保存</p>
+<p>构造方法：<br>    ObjectOutputStream（OutputStream out）创建写入指定 OutputStream 的 ObjectOutputStream<br>    参数：<br>        OutputStream out：字节输出流<br>特有的成员方法：<br>    void writeObject(Object obj) 将指定的对象写入 ObjectOutputStream。</p>
+<a id="more"></a>
+<p>使用步骤：<br>    1. 创建 ObjectOutputStream 对象，构造方法中传递字节输出流<br>    2. 使用 ObjectOutputStream 对象中的方法writeObject，把对象写入到文件中<br>    3. 释放资源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Demo01ObjectOutputStream &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        ObjectOutputStream oos &#x3D; new ObjectOutputStream(new FileOutputStream(&quot;person.txt&quot;));</span><br><span class="line">        Person person &#x3D; new Person(&quot;金小胖&quot;, 18);</span><br><span class="line">        oos.writeObject(person);</span><br><span class="line">        oos.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="对象字节输入流-ObjectInputStream"><a href="#对象字节输入流-ObjectInputStream" class="headerlink" title="对象字节输入流 ObjectInputStream"></a>对象字节输入流 ObjectInputStream</h2><p>java.io.ObjectInputStream extends InputStream<br>ObjectInputStream:对象的反序列化流<br>作用：把文件中保存的对象，以流的方式读取出来使用</p>
+<p>构造方法：<br>    ObjectInputStream（InputStream in）创建写入指定 InputStream 的 ObjectInputStream<br>    参数：<br>        InputStream In：字节输入流<br>特有的成员方法：<br>   Object readObject() 从 ObjectInputStream 读取对象<br>使用步骤：<br>    1. 创建 ObjectInputStream 对象，构造方法中传递字节输入流<br>    2. 使用 ObjectInputStream 对象中的方法readObject 读取保存对象的文件<br>    3. 释放资源<br>    4. 打印</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Demo01ObjectInputStream &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException, ClassNotFoundException &#123;</span><br><span class="line">        ObjectInputStream ois &#x3D; new ObjectInputStream(new FileInputStream(&quot;person.txt&quot;));</span><br><span class="line">        Object o &#x3D; ois.readObject();</span><br><span class="line">        ois.close();</span><br><span class="line">        System.out.println(o);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="transient-关键字"><a href="#transient-关键字" class="headerlink" title="transient 关键字"></a>transient 关键字</h2><p>被transient修饰过的成员变量，不能被序列化</p>
+<h2 id="InvalidClassException异常"><a href="#InvalidClassException异常" class="headerlink" title="InvalidClassException异常"></a>InvalidClassException异常</h2><p>编译器（javac.exe）会把Person.java文件编译生成Person.class文件Person类实现了Serializable接口，<br>就会根据类的定义给Person.class文件添加一个序列号serialVersionUID = -64726<br>修改类的定义后，重新生成一个序列号 -32969 就会发生序列号冲突。<br>解决方案：手动定义一个序列号<br>static final long serialVersionUID = 1L;</p>
+<h2 id="练习：序列化集合"><a href="#练习：序列化集合" class="headerlink" title="练习：序列化集合"></a>练习：序列化集合</h2><p>保存多个对象，可以存到一个集合中，对集合进行序列化和反序列化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Demo01ObjectStreamTest &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException, ClassNotFoundException &#123;</span><br><span class="line">        Person person0 &#x3D; new Person(&quot;金小胖&quot;, 18);</span><br><span class="line">        Person person1 &#x3D; new Person(&quot;金二胖&quot;, 19);</span><br><span class="line">        Person person2 &#x3D; new Person(&quot;金大胖&quot;, 20);</span><br><span class="line">        List&lt;Person&gt; persons &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">        persons.add(person0);</span><br><span class="line">        persons.add(person1);</span><br><span class="line">        persons.add(person2);</span><br><span class="line">        ObjectOutputStream oos &#x3D; new ObjectOutputStream(new FileOutputStream(&quot;ObjectTest.txt&quot;));</span><br><span class="line">        oos.writeObject(persons);</span><br><span class="line">        ObjectInputStream ois &#x3D; new ObjectInputStream(new FileInputStream(&quot;ObjectTest.txt&quot;));</span><br><span class="line">        Object o &#x3D; ois.readObject();</span><br><span class="line">        ArrayList&lt;Person&gt; arrayList &#x3D; (ArrayList&lt;Person&gt;)o;</span><br><span class="line">        for (Person person : arrayList)&#123;</span><br><span class="line">            System.out.println(person);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="打印流-PrintStream"><a href="#打印流-PrintStream" class="headerlink" title="打印流 PrintStream"></a>打印流 PrintStream</h2><p>java.io.PrintStream:打印流<br>    PrintStream 为其他输出流添加了功能，使它们能够方便地打印各种数据值表示形式。<br>PrintStream 特点：<br>    1.只负责数据的输出，不负责数据的读取<br>    2.与其他输出流不同，PrintStream 永远不会抛出 IOException<br>    3.有特有的方法，print,println<br>构造方法：<br>    PrintStream（File file）：输出的目的地是一个文件<br>    PrintStream（OutputStream out）：输出的目的地是一个字节输出流<br>    PrintStream（String fileName）：输出的目的地是一个文件路径<br>PrintStream extends OutputStream 继承父类成员方法<br>注意：<br>    如果使用父类write方法写数据，那么查看数据的时候会查询编码表 97-&gt;a<br>    如果使用自己特有的方法print,println，输出原样<br>可以改变输出语句的目的地，输出语句默认在控制台输出，使用System.setOut</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Demo02PrintStream &#123;</span><br><span class="line">    public static void main(String[] args) throws FileNotFoundException &#123;</span><br><span class="line">        PrintStream ps &#x3D; new PrintStream(&quot;print.txt&quot;);</span><br><span class="line">        System.out.println(&quot;控制台输出&quot;);</span><br><span class="line">        ps.println(97);</span><br><span class="line">        System.setOut(ps);</span><br><span class="line">        System.out.println(&quot;文件里输出&quot;);</span><br><span class="line">        ps.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
 
-        <div class="article-info info-on-right">
-          
-          
-
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/22/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96ObjectOutputStream%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96ObjectInputStream%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8D%B0%E6%B5%81PrintStream/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-07-21T13:40:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring boot基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/">spring boot基础</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/20/Spring-boot%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-07-20T12:39:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/20/Spring-boot%E5%85%A5%E9%97%A8/">Spring boot入门</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/17/hello-world/" class="archive-article-date">
-  	<time datetime="2020-07-17T13:49:40.177Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/17/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -302,8 +342,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
