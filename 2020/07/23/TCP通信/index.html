@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>对象的序列化ObjectOutputStream和反序列化ObjectInputStream以及打印流PrintStream | JinX-p</title>
+  <title>TCP通信 | JinX-p</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="对象字节输出流 ObjectOutputStreamjava.io.ObjectOutputStream extends OutputStreamObjectOutputStream:对象的序列化流作用：把对象以流的方式写入到文件中保存 构造方法：    ObjectOutputStream（OutputStream out）创建写入指定 OutputStream 的 ObjectOutputSt">
+  <meta name="description" content="网络编程入门：软件结构分为C&#x2F;S 客户端与服务端和B&#x2F;S 浏览器端与服务端网络编程三要素：协议、IP地址、端口号网络通信协议分类有两种TCP 和UDPUDP：    Internet 协议集支持一个无连接的传输协议，该协议称为用户数据报协议（UDP，User Datagram Protocol）。UDP 为应用程序提供了一种无需建立连接就可以发送封装的 IP 数据包的方法。    在选择UDP作为">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对象的序列化ObjectOutputStream和反序列化ObjectInputStream以及打印流PrintStream">
-<meta property="og:url" content="http://yoursite.com/2020/07/22/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96ObjectOutputStream%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96ObjectInputStream%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8D%B0%E6%B5%81PrintStream/index.html">
+<meta property="og:title" content="TCP通信">
+<meta property="og:url" content="http://yoursite.com/2020/07/23/TCP%E9%80%9A%E4%BF%A1/index.html">
 <meta property="og:site_name" content="JinX-p">
-<meta property="og:description" content="对象字节输出流 ObjectOutputStreamjava.io.ObjectOutputStream extends OutputStreamObjectOutputStream:对象的序列化流作用：把对象以流的方式写入到文件中保存 构造方法：    ObjectOutputStream（OutputStream out）创建写入指定 OutputStream 的 ObjectOutputSt">
-<meta property="article:published_time" content="2020-07-22T15:49:32.000Z">
-<meta property="article:modified_time" content="2020-07-22T15:57:12.020Z">
+<meta property="og:description" content="网络编程入门：软件结构分为C&#x2F;S 客户端与服务端和B&#x2F;S 浏览器端与服务端网络编程三要素：协议、IP地址、端口号网络通信协议分类有两种TCP 和UDPUDP：    Internet 协议集支持一个无连接的传输协议，该协议称为用户数据报协议（UDP，User Datagram Protocol）。UDP 为应用程序提供了一种无需建立连接就可以发送封装的 IP 数据包的方法。    在选择UDP作为">
+<meta property="article:published_time" content="2020-07-23T09:09:53.000Z">
+<meta property="article:modified_time" content="2020-07-23T09:17:18.770Z">
 <meta property="article:author" content="JinX-p">
 <meta property="article:tag" content="JinX-p">
 <meta name="twitter:card" content="summary">
@@ -158,40 +158,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-对象的序列化ObjectOutputStream和反序列化ObjectInputStream以及打印流PrintStream" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-TCP通信" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      对象的序列化ObjectOutputStream和反序列化ObjectInputStream以及打印流PrintStream
+      TCP通信
     </h1>
   
 
         
-        <a href="/2020/07/22/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96ObjectOutputStream%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96ObjectInputStream%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8D%B0%E6%B5%81PrintStream/" class="archive-article-date">
-  	<time datetime="2020-07-22T15:49:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
+        <a href="/2020/07/23/TCP%E9%80%9A%E4%BF%A1/" class="archive-article-date">
+  	<time datetime="2020-07-23T09:09:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="对象字节输出流-ObjectOutputStream"><a href="#对象字节输出流-ObjectOutputStream" class="headerlink" title="对象字节输出流 ObjectOutputStream"></a>对象字节输出流 ObjectOutputStream</h2><p>java.io.ObjectOutputStream extends OutputStream<br>ObjectOutputStream:对象的序列化流<br>作用：把对象以流的方式写入到文件中保存</p>
-<p>构造方法：<br>    ObjectOutputStream（OutputStream out）创建写入指定 OutputStream 的 ObjectOutputStream<br>    参数：<br>        OutputStream out：字节输出流<br>特有的成员方法：<br>    void writeObject(Object obj) 将指定的对象写入 ObjectOutputStream。</p>
+        <h2 id="网络编程入门："><a href="#网络编程入门：" class="headerlink" title="网络编程入门："></a>网络编程入门：</h2><p>软件结构分为C/S 客户端与服务端和B/S 浏览器端与服务端<br>网络编程三要素：协议、IP地址、端口号<br>网络通信协议分类有两种TCP 和UDP<br>UDP：<br>    Internet 协议集支持一个无连接的传输协议，该协议称为用户数据报协议（UDP，User Datagram Protocol）。UDP 为应用程序提供了一种无需建立连接就可以发送封装的 IP 数据包的方法。<br>    在选择UDP作为传输协议时必须要谨慎。在网络质量令人十分不满意的环境下，UDP协议数据包丢失会比较严重。</p>
 <a id="more"></a>
-<p>使用步骤：<br>    1. 创建 ObjectOutputStream 对象，构造方法中传递字节输出流<br>    2. 使用 ObjectOutputStream 对象中的方法writeObject，把对象写入到文件中<br>    3. 释放资源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Demo01ObjectOutputStream &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        ObjectOutputStream oos &#x3D; new ObjectOutputStream(new FileOutputStream(&quot;person.txt&quot;));</span><br><span class="line">        Person person &#x3D; new Person(&quot;金小胖&quot;, 18);</span><br><span class="line">        oos.writeObject(person);</span><br><span class="line">        oos.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="对象字节输入流-ObjectInputStream"><a href="#对象字节输入流-ObjectInputStream" class="headerlink" title="对象字节输入流 ObjectInputStream"></a>对象字节输入流 ObjectInputStream</h2><p>java.io.ObjectInputStream extends InputStream<br>ObjectInputStream:对象的反序列化流<br>作用：把文件中保存的对象，以流的方式读取出来使用</p>
-<p>构造方法：<br>    ObjectInputStream（InputStream in）创建写入指定 InputStream 的 ObjectInputStream<br>    参数：<br>        InputStream In：字节输入流<br>特有的成员方法：<br>   Object readObject() 从 ObjectInputStream 读取对象<br>使用步骤：<br>    1. 创建 ObjectInputStream 对象，构造方法中传递字节输入流<br>    2. 使用 ObjectInputStream 对象中的方法readObject 读取保存对象的文件<br>    3. 释放资源<br>    4. 打印</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Demo01ObjectInputStream &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException, ClassNotFoundException &#123;</span><br><span class="line">        ObjectInputStream ois &#x3D; new ObjectInputStream(new FileInputStream(&quot;person.txt&quot;));</span><br><span class="line">        Object o &#x3D; ois.readObject();</span><br><span class="line">        ois.close();</span><br><span class="line">        System.out.println(o);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="transient-关键字"><a href="#transient-关键字" class="headerlink" title="transient 关键字"></a>transient 关键字</h2><p>被transient修饰过的成员变量，不能被序列化</p>
-<h2 id="InvalidClassException异常"><a href="#InvalidClassException异常" class="headerlink" title="InvalidClassException异常"></a>InvalidClassException异常</h2><p>编译器（javac.exe）会把Person.java文件编译生成Person.class文件Person类实现了Serializable接口，<br>就会根据类的定义给Person.class文件添加一个序列号serialVersionUID = -64726<br>修改类的定义后，重新生成一个序列号 -32969 就会发生序列号冲突。<br>解决方案：手动定义一个序列号<br>static final long serialVersionUID = 1L;</p>
-<h2 id="练习：序列化集合"><a href="#练习：序列化集合" class="headerlink" title="练习：序列化集合"></a>练习：序列化集合</h2><p>保存多个对象，可以存到一个集合中，对集合进行序列化和反序列化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Demo01ObjectStreamTest &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException, ClassNotFoundException &#123;</span><br><span class="line">        Person person0 &#x3D; new Person(&quot;金小胖&quot;, 18);</span><br><span class="line">        Person person1 &#x3D; new Person(&quot;金二胖&quot;, 19);</span><br><span class="line">        Person person2 &#x3D; new Person(&quot;金大胖&quot;, 20);</span><br><span class="line">        List&lt;Person&gt; persons &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">        persons.add(person0);</span><br><span class="line">        persons.add(person1);</span><br><span class="line">        persons.add(person2);</span><br><span class="line">        ObjectOutputStream oos &#x3D; new ObjectOutputStream(new FileOutputStream(&quot;ObjectTest.txt&quot;));</span><br><span class="line">        oos.writeObject(persons);</span><br><span class="line">        ObjectInputStream ois &#x3D; new ObjectInputStream(new FileInputStream(&quot;ObjectTest.txt&quot;));</span><br><span class="line">        Object o &#x3D; ois.readObject();</span><br><span class="line">        ArrayList&lt;Person&gt; arrayList &#x3D; (ArrayList&lt;Person&gt;)o;</span><br><span class="line">        for (Person person : arrayList)&#123;</span><br><span class="line">            System.out.println(person);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="打印流-PrintStream"><a href="#打印流-PrintStream" class="headerlink" title="打印流 PrintStream"></a>打印流 PrintStream</h2><p>java.io.PrintStream:打印流<br>    PrintStream 为其他输出流添加了功能，使它们能够方便地打印各种数据值表示形式。<br>PrintStream 特点：<br>    1.只负责数据的输出，不负责数据的读取<br>    2.与其他输出流不同，PrintStream 永远不会抛出 IOException<br>    3.有特有的方法，print,println<br>构造方法：<br>    PrintStream（File file）：输出的目的地是一个文件<br>    PrintStream（OutputStream out）：输出的目的地是一个字节输出流<br>    PrintStream（String fileName）：输出的目的地是一个文件路径<br>PrintStream extends OutputStream 继承父类成员方法<br>注意：<br>    如果使用父类write方法写数据，那么查看数据的时候会查询编码表 97-&gt;a<br>    如果使用自己特有的方法print,println，输出原样<br>可以改变输出语句的目的地，输出语句默认在控制台输出，使用System.setOut</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Demo02PrintStream &#123;</span><br><span class="line">    public static void main(String[] args) throws FileNotFoundException &#123;</span><br><span class="line">        PrintStream ps &#x3D; new PrintStream(&quot;print.txt&quot;);</span><br><span class="line">        System.out.println(&quot;控制台输出&quot;);</span><br><span class="line">        ps.println(97);</span><br><span class="line">        System.setOut(ps);</span><br><span class="line">        System.out.println(&quot;文件里输出&quot;);</span><br><span class="line">        ps.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是由于UDP的特性：它不属于连接型协议，因而具有资源消耗小，处理速度快的优点，所以通常音频、视频和普通数据在传送时使用UDP较多，因为它们即使偶尔丢失一两个数据包，也不会对接收结果产生太大影响。<br>比如我们聊天用的ICQ和QQ就是使用的UDP协议。<br>TCP：<br>    传输控制协议（TCP，Transmission Control Protocol）是一种面向连接的、可靠的、基于字节流的传输层通信协议。<br>    TCP是因特网中的传输层协议，使用三次握手协议建立连接。当主动方发出SYN连接请求后，等待对方回答SYN+ACK，并最终对对方的 SYN 执行 ACK 确认。<br>    这种建立连接的方法可以防止产生错误的连接，TCP使用的流量控制协议是可变大小的滑动窗口协议。<br>协议对比：<br>    TCP 是面向连接的传输控制协议，而UDP 提供了无连接的数据报服务；TCP 具有高可靠性，确保传输数据的正确性，不出现丢失或乱序；<br>    UDP 在传输数据前不建立连接，不对数据报进行检查与修改，无须等待对方的应答，所以会出现分组丢失、重复、乱序，应用程序需要负责传输可靠性方面的所有工作；<br>    UDP 具有较好的实时性，工作效率较 TCP 协议高；UDP 段结构比 TCP 的段结构简单，因此网络开销也小。<br>    TCP 协议可以保证接收端毫无差错地接收到发送端发出的字节流，为应用程序提供可靠的通信服务。对可靠性要求高的通信系统往往使用 TCP 传输数据。<br>IP地址：<br>    IP地址是IP协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址，以此来屏蔽物理地址的差异。如果把电脑比喻成电话，那么IP地址就相当于电话号码。<br>IP地址分类：<br>    IPv4、IPv6<br>端口号：<br>    所谓的端口，就好像是门牌号一样，客户端可以通过ip地址找到对应的服务器端，但是服务器端是有很多端口的，每个应用程序对应一个端口号，通过类似门牌号的端口号，客户端才能真正的访问到该服务器。<br>    为了对端口进行区分，将每个端口进行了编号，这就是端口号。</p>
+<h2 id="TCP-通信程序"><a href="#TCP-通信程序" class="headerlink" title="TCP 通信程序"></a>TCP 通信程序</h2><p>TCP 通信能实现两台计算机之间的数据交互，通信的两端，要严格区分为客户端(Client)和服务端（Server）。<br>通信的步骤：<br>    1. 服务端程序，需要事先启动，等待客户端的连接。<br>    2. 客户端主动连接服务端，连接成功才能通信。连接中包含一个IO对象，客户端和服务器端就可以使用这个IO对象进行通信，这个IO对象是字节流对象。<br>服务器端必须明确两件事情：<br>    1. 多个客户端同时和服务器进行交互，服务器必须明确和哪个客户端进行的交互，在服务器端有一个方法，叫accept客户端获取到请求的客户端对象<br>    2. 多个客户端同时和服务器进行交互，就需要使用多个IO流对象，服务器使用客户端的流和客户端进行交互。</p>
+<h2 id="客户端代码实现"><a href="#客户端代码实现" class="headerlink" title="客户端代码实现:"></a>客户端代码实现:</h2><p>TCP通信的客户端：先服务器发送连接请求，给服务器发送数据，读取服务器回写的数据<br>表示客户端的类：<br>java.net.Socket<br>构造方法：<br>    Socket(String host, int port)创建一个流套接字并连接到指定主机上的指定端口号。<br>    套接字：IP地址和端口号<br>成员方法：<br>    OutputStream getOutputStream() 返回此套接字的输出流。<br>    InputStream getInputStream() 返回此套接字的输入流。<br>    void close()<br>实现步骤：<br>    1. 创建Socket对象，绑定服务器IP和端口号<br>    2. 使用Socket对象的方法getOutputStream() 获取OutputStream对象<br>    3. 使用OutputStream对象的方法write，给服务器发送数据<br>    4. 使用Socket对象的方法getInputStream() 获取InputStream对象<br>    5. 使用InputStream对象的方法read,读取服务器回写的数据<br>    6. 释放资源（Socket）<br>注意：<br>    1. 客户端和服务器端进行交互，必须使用Socket中提供的网络流，不能使用自己创建的流对象<br>    2. 当我们创建客户端对象Socket的时候，就会去请求服务器和服务器经过3次握手建立连接通路，这时如果服务器已经启动，那么就可以交互。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Demo01TCPSocket &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        Socket socket &#x3D; new Socket(&quot;127.0.0.1&quot;, 8888);</span><br><span class="line">        OutputStream os &#x3D; socket.getOutputStream();</span><br><span class="line">        os.write(&quot;你好服务器&quot;.getBytes());</span><br><span class="line">        InputStream is &#x3D; socket.getInputStream();</span><br><span class="line">        byte[] bytes &#x3D; new byte[1024];</span><br><span class="line">        int len &#x3D; is.read(bytes);</span><br><span class="line">        System.out.println(new String(bytes,0,len));</span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="服务器端代码实现："><a href="#服务器端代码实现：" class="headerlink" title="服务器端代码实现："></a>服务器端代码实现：</h2><p>TCP通信的服务端：接受客户端的请求，读取客户端发送的数据，给客户端回写数据<br>表示服务器端的类：<br>java.net.ServerSocket<br>构造方法：<br>    ServerSocket(int port)创建绑定到特定端口的服务器套接字。<br>成员方法：<br>   Socket accept（）侦听并接受到此套接字的连接<br>实现步骤：<br>    1. 创建ServerSocket对象和系统要指定的端口号<br>    2. 使用ServerSocket对象中的方法accept，获取请求的客户端对象Socket<br>    3. 使用Socket对象的方法getInputStream() 获取InputStream对象<br>    4. 使用InputStream对象的方法read,读取服务器回写的数据<br>    5. 使用Socket对象的方法getOutputStream() 获取OutputStream对象<br>    6. 使用OutputStream对象的方法write，给服务器发送数据<br>    7. 释放资源（Socket,ServerSocket）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Demo01TCPServerSocket &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        ServerSocket serverSocket &#x3D; new ServerSocket(8888);</span><br><span class="line">        Socket socket &#x3D; serverSocket.accept();</span><br><span class="line">        InputStream is &#x3D; socket.getInputStream();</span><br><span class="line">        byte[] bytes &#x3D; new byte[1024];</span><br><span class="line">        int len &#x3D; is.read(bytes);</span><br><span class="line">        System.out.println(new String(bytes,0,len));</span><br><span class="line">        OutputStream os &#x3D; socket.getOutputStream();</span><br><span class="line">        os.write(&quot;收到&quot;.getBytes());</span><br><span class="line">        socket.close();</span><br><span class="line">        serverSocket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -270,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/22/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96ObjectOutputStream%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96ObjectInputStream%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8D%B0%E6%B5%81PrintStream/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/23/TCP%E9%80%9A%E4%BF%A1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +278,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/23/TCP%E9%80%9A%E4%BF%A1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          TCP通信
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/21/spring-boot%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">spring boot基础</div>
+    <a href="/2020/07/22/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96ObjectOutputStream%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96ObjectInputStream%E4%BB%A5%E5%8F%8A%E6%89%93%E5%8D%B0%E6%B5%81PrintStream/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">对象的序列化ObjectOutputStream和反序列化ObjectInputStream以及打印流PrintStream</div>
       <i class="icon-circle-right"></i>
     </a>
   
