@@ -8,14 +8,14 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>TCP通信-文件上传案例 | JinX-p</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="客户端文件上传案例的客户端：读取本地文件，上传到服务器，读取服务器回写的数据数据源：D:\1.png目的地：服务器步骤：    1. 创建FileInputStream 对象，构造方法中绑定数据源    2. 创建Socket 对象，构造方法中绑定服务器IP 地址和端口号    3. 使用Socket 的方法getOutputStream 获取OutputStream 对象">
+  <meta name="description" content="客户端文件上传案例的客户端：读取本地文件，上传到服务器，读取服务器回写的数据数据源：D:\1.png目的地：服务器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TCP通信-文件上传案例">
 <meta property="og:url" content="http://yoursite.com/2020/07/24/TCP%E9%80%9A%E4%BF%A1-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%A1%88%E4%BE%8B/index.html">
 <meta property="og:site_name" content="JinX-p">
-<meta property="og:description" content="客户端文件上传案例的客户端：读取本地文件，上传到服务器，读取服务器回写的数据数据源：D:\1.png目的地：服务器步骤：    1. 创建FileInputStream 对象，构造方法中绑定数据源    2. 创建Socket 对象，构造方法中绑定服务器IP 地址和端口号    3. 使用Socket 的方法getOutputStream 获取OutputStream 对象">
+<meta property="og:description" content="客户端文件上传案例的客户端：读取本地文件，上传到服务器，读取服务器回写的数据数据源：D:\1.png目的地：服务器">
 <meta property="article:published_time" content="2020-07-24T10:24:54.000Z">
-<meta property="article:modified_time" content="2020-07-24T10:36:23.056Z">
+<meta property="article:modified_time" content="2020-07-27T14:42:23.064Z">
 <meta property="article:author" content="JinX-p">
 <meta property="article:tag" content="JinX-p">
 <meta name="twitter:card" content="summary">
@@ -178,13 +178,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p>文件上传案例的客户端：读取本地文件，上传到服务器，读取服务器回写的数据<br>数据源：D:\1.png<br>目的地：服务器<br>步骤：<br>    1. 创建FileInputStream 对象，构造方法中绑定数据源<br>    2. 创建Socket 对象，构造方法中绑定服务器IP 地址和端口号<br>    3. 使用Socket 的方法getOutputStream 获取OutputStream 对象</p>
+        <h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p>文件上传案例的客户端：读取本地文件，上传到服务器，读取服务器回写的数据<br>数据源：D:\1.png<br>目的地：服务器</p>
 <a id="more"></a>
-<pre><code>4. 使用FileInputStream 的方法read ，读取本地数据
-5. 使用OutputStream 的方法write ，写入数据到服务器
-6. 使用Socket 的方法getInputStream 获取InputStream 对象
-7. 使用InputStream 的方法read, 读取服务器回写的数据。
-8. 释放资源（FileInputStream, Socket）</code></pre><p>注意：<br>    用while循环使用read时，文件的结束标记不会被读取，就会进入阻塞状态。<br>    需要手动写入结束标记，使用socket.shutdownOutput 方法</p>
+<p>步骤：<br>    1. 创建FileInputStream 对象，构造方法中绑定数据源<br>    2. 创建Socket 对象，构造方法中绑定服务器IP 地址和端口号<br>    3. 使用Socket 的方法getOutputStream 获取OutputStream 对象<br>    4. 使用FileInputStream 的方法read ，读取本地数据<br>    5. 使用OutputStream 的方法write ，写入数据到服务器<br>    6. 使用Socket 的方法getInputStream 获取InputStream 对象<br>    7. 使用InputStream 的方法read, 读取服务器回写的数据。<br>    8. 释放资源（FileInputStream, Socket）<br>注意：<br>    用while循环使用read时，文件的结束标记不会被读取，就会进入阻塞状态。<br>    需要手动写入结束标记，使用socket.shutdownOutput 方法</p>
 <h3 id="客户端代码实现"><a href="#客户端代码实现" class="headerlink" title="客户端代码实现"></a>客户端代码实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Demo02UploadClient &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        FileInputStream fis &#x3D; new FileInputStream(&quot;d:\\1.png&quot;);</span><br><span class="line">        Socket socket &#x3D; new Socket(&quot;127.0.0.1&quot;, 8888);</span><br><span class="line">        OutputStream os &#x3D; socket.getOutputStream();</span><br><span class="line">        byte[] bytes &#x3D; new byte[1024];</span><br><span class="line">        int len &#x3D; 0;</span><br><span class="line">        while((len &#x3D; fis.read(bytes)) !&#x3D; -1 ) &#123;</span><br><span class="line">            os.write(bytes,0,len);</span><br><span class="line">        &#125;</span><br><span class="line">        socket.shutdownOutput();</span><br><span class="line">        InputStream is &#x3D; socket.getInputStream();</span><br><span class="line">        while((len &#x3D; is.read(bytes)) !&#x3D; -1 ) &#123;</span><br><span class="line">            System.out.println(new String(bytes,0,len));</span><br><span class="line">        &#125;</span><br><span class="line">        fis.close();</span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h2><p>文件上传案例服务器端：读取客户端上传的文件，保存到服务器的硬盘，给客户端回写“上传成功”<br>数据源：客户端上传的文件<br>目的地：D:\upload\1.png<br>步骤：</p>
 <ol>
